@@ -9,16 +9,9 @@
 - Login/logout/reset password/forgot password API endpoints
 - Django Suit theme for the Django Admin
 
-# What's missing?
-- Vanilla signup/login/forgot password/reset password
-- Makefile for tests and deployment
-- How to deploy to Heroku
-- Development process
-- Project structure - where to add new apps
-
 # Dev Setup
 0. Clone this repo: `git clone git@github.com:simplefractal/fractal-django-genie.git`;
-1. Create a new repo on GitHub, change the local git origin to point to the new repo and the push.
+1. Rename the cloned directory to your project name, create a new repo on GitHub with the same name, change the local git origin to point to the new repo and the push.
 2. Inside this new repo, erase this README so it will lose this current text;
 3. Create a virtualenv for Python 3.5: `mkvirtualenv {{ VIRTUAL_ENV_NAME }} -p /usr/bin/python3.5`;
 4. Copy default postactivate: `cp contrib/proj_postactivate $VIRTUAL_ENV/bin/postactivate`;
@@ -26,15 +19,15 @@
 6. Install the packages: `pip install -r dev-requirements.txt`;
 7. Create postgres db: `createdb {{ DATABASE_NAME }}`;
 8. Install redis ([click here](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-redis) if you're using Ubuntu)
-9. Migrations: `python manage.py migrate`
-10. Create admin user: `python manage.py createsuperuser`
-11. Runserver: `python manage.py runserver`
+9. Migrations: `python project/manage.py migrate`
+10. Create admin user: `python project/manage.py createsuperuser`
+11. Runserver: `python project/manage.py runserver`
 
 # Asynchronous Tasks
-Run django-rq for email sending: `python manage.py rqworker high low default`
+Run django-rq for email sending: `python project/manage.py rqworker`
 
 # How to run the tests
-From inside the `project` directory, run `pytest`.
+`make test`
 
 # Alternative env setup
 You can also create a `.env` file inside of `config` similar to `.env-example`
